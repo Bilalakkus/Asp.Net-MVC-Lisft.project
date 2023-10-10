@@ -2,7 +2,7 @@
 using Admin.project.Views.VM;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Admin.project.Views.Shared.ViewComponents
+namespace Admin.project.Views.Shared.Components.MenuListVC
 {
     public class MenuListVC : ViewComponent
     {
