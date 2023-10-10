@@ -1,4 +1,6 @@
-﻿using System.Security.Principal;
+﻿using Admin.project.Models.Base.Interface;
+using System.Security.Principal;
+using static Admin.project.Models.Base.Interface.IEntity;
 
 namespace Admin.project.Models.Base
 {

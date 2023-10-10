@@ -7,6 +7,8 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<LiftContext>(o =>
         o.UseSqlServer(builder.Configuration.GetConnectionString("default")));
+//builder.Services.AddDbContext<LiftContext>(opt =>
+//    opt.UseSqlServer("Server=.\\BILALAKKUS;Database=LiftDB;Integrated Security=True;TrustServerCertificate=true;User ID=sa;Password=a1234*"));
 
 var app = builder.Build();
 

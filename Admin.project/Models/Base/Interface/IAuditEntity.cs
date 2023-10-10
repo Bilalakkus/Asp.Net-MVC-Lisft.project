@@ -1,10 +1,16 @@
-﻿namespace Admin.project.Models.Base.Interface
+﻿using static Admin.project.Models.Base.Interface.IEntity;
+
+namespace Admin.project.Models.Base.Interface
 {
-    public interface IRepository<TEntity> where TEntity : IEntity
+    public interface IAuditEntity : IAuditEntity<int>
     {
-        Task<bool> RemoveAsync(int id);
-        Task<TEntity> GetByIdAsync(int id);
-        Task<List<TEntity>> GetAllAsync();
-        Task<TEntity> UpdateAsync(int Id, TEntity entity);
+        DateTime CreatedDate { get; set; }
+        int CreatedUserId { get; set; }
+        DateTime? UpdatedDate { get; set; }
+        int? UpdatedUserId { get; set; }
     }
+    public interface IAuditEntity<T> : IEntity<T>
+    {
+    }
+
 }
