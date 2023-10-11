@@ -1,25 +1,32 @@
-﻿ <!-- Categories widget-->
-<div class="card mb-4">
-    <div class="card-header">Categories</div>
-    <div class="card-body">
-        <div class="row">
-            <div class="col-sm-6">
-                <ul class="list-unstyled mb-0">
-
-                   @*  @foreach(var c in Model)
-                    {
-                        <li><a href="#!">@c.Name</a></li> 
-                    } *@
-                     
-                </ul>
-            </div>
-           @* <div class="col-sm-6">
-                <ul class="list-unstyled mb-0">
-                    <li><a href="#!">JavaScript</a></li>
-                    <li><a href="#!">CSS</a></li>
-                    <li><a href="#!">Tutorials</a></li>
-                </ul>
-            </div>*@
-        </div>
-    </div>
+﻿@using Admin.project.Views.VM;
+@model List<MenusVM>;
+<div class="sidebar-heading">
+    Interface
 </div>
+@foreach (var item in Model)
+{
+    if (item.ParentId == 0)
+    {
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
+               aria-expanded="true" aria-controls="collapseTwo">
+                <i class="fas fa-fw fa-cog"></i>
+                <span>@item.Name</span>
+            </a>
+            
+            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <h6 class="collapse-header">Custom Components:</h6>
+                    @if (item.SubMenuList != null)
+                    {
+                        @foreach (var subMenu in item.SubMenuList)
+                        {
+                            <a class="collapse-item" href="buttons.html">@subMenu.Name</a>
+                        }
+                    }
+                </div>
+            </div>
+        </li>
+    }
+}
+<!-- Nav Item - Pages Collapse Menu -->
